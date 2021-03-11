@@ -41,32 +41,32 @@
 </body>
 <script>
 	function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = document.getElementById("inputElements").value
-		element.className = "listy"
 
-		var listyItems = document.getElementsByClassName("listy");
+let element = document.createElement("div")
+element.innerHTML = document.getElementById("inputElements").value
+element.className = "listy"
 
-		var r = 0;
+var listyItems = document.getElementsByClassName("listy");
 
-		if (listyItems.length > 8) {
-            for (var k = 0; k < 8; k++) {
-                if (listyItems[k].innerHTML == element.innerHTML) {
-                    listyItems[k].remove();
-                    console.log("We are removing duplicates");
-                    r = 1;
-                    break;
-                }
-            }
-            if (r == 0) {
-                listyItems[0].remove();
-            }
-        }
+var r = 0;
 
-		/* add it to the container */
-		document.getElementById('target').appendChild(element)
-		
+if (listyItems.length > 8) {
+	for (var k = 0; k < 8; k++) {
+		if (listyItems[k].innerHTML == element.innerHTML) {
+			listyItems[k].remove();
+			console.log("We are removing duplicates");
+			r = 1;
+			break;
+		}
 	}
+	if (r == 0) {
+		var rand=Math.floor(Math.random()*(listyItems.length-0)+0)
+		listyItems[rand].remove();
+	}
+}
+
+document.getElementById('target').appendChild(element)
+
+}
 </script>
 </html>	
