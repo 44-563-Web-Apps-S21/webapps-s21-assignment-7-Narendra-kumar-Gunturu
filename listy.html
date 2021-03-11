@@ -46,6 +46,24 @@
 		element.innerHTML = document.getElementById("inputElements").value
 		element.className = "listy"
 
+		var listyItems = document.getElementsByClassName("listy");
+
+		var r = 0;
+
+		if (listyItems.length > 8) {
+            for (var k = 0; k < 8; k++) {
+                if (listyItems[k].innerHTML == element.innerHTML) {
+                    listyItems[k].remove();
+                    console.log("We are removing duplicates");
+                    r = 1;
+                    break;
+                }
+            }
+            if (r == 0) {
+                listyItems[0].remove();
+            }
+        }
+
 		/* add it to the container */
 		document.getElementById('target').appendChild(element)
 		
